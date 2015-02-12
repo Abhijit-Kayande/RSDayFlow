@@ -163,6 +163,14 @@
 
 @optional
 
+
+//Abhi
+//Added this method to know if calendar is scrolled...
+
+-(void)CalendarDidScrolled;
+
+-(void)CalendarDidEndScrolling;
+
 /**
  Asks the delegate if the date should be highlighted during tracking.
  

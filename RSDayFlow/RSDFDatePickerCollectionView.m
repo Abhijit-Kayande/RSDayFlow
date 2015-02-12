@@ -50,6 +50,9 @@
     return self;
 }
 
+
+
+
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
 {
     self = [super initWithFrame:frame collectionViewLayout:layout];
@@ -66,6 +69,7 @@
     self.showsHorizontalScrollIndicator = NO;
     self.scrollsToTop = NO;
     self.delaysContentTouches = NO;
+    
 }
 
 - (void)layoutSubviews
@@ -82,5 +86,6 @@
 {
     return [UIColor whiteColor];
 }
+
 
 @end
