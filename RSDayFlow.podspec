@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = 'iOS 7 Calendar with Infinite Scrolling.'
   s.homepage     = 'https://github.com/Abhijit-Kayande/RSDayFlow'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.authors      = { 'Evadne Wu' => 'ev@radi.ws', 'Ruslan Skorb' => 'ruslan.skorb@gmail.com', ‘Abhijit’ Kayande => ‘abhijit’kayande20@gmail.com }
+  s.authors      = { 'Evadne Wu' => 'ev@radi.ws', 'Ruslan Skorb' => 'ruslan.skorb@gmail.com', 'Abhijit Kayande' => 'abhijitkayande20@gmail.com' }
   s.source       = { :git => 'https://github.com/Abhijit-Kayande/RSDayFlow.git', :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.source_files = 'RSDayFlow'
