@@ -39,7 +39,9 @@
  @param frame The frame rectangle for the view, measured in points.
  @param calendar The calendar for the date picker view.
  */
-- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar;
+
+//Abhi Edited
+- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar pastMonths:(CGFloat)pastMonths postMonths:(CGFloat)postMonths;
 
 ///-----------------------------
 /// @name Accessing the Delegate

@@ -48,6 +48,10 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
 @property (nonatomic, readonly, assign) NSUInteger daysInWeek;
 @property (nonatomic, readonly, strong) NSDate *selectedDate;
 
+//Abhi
+@property (nonatomic) CGFloat pastMonths;
+@property (nonatomic) CGFloat postMonths;
+
 @end
 
 @implementation RSDFDatePickerView
@@ -85,11 +89,13 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar
+- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar pastMonths:(CGFloat)pastMonths postMonths:(CGFloat)postMonths
 {
     self = [super initWithFrame:frame];
     if (self) {
         _calendar = calendar;
+        _pastMonths = pastMonths;
+        _postMonths = postMonths;
         [self commonInitializer];
     }
     return self;
@@ -253,13 +259,13 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     
     _fromDate = [self pickerDateFromDate:[self.calendar dateByAddingComponents:((^{
         NSDateComponents *components = [NSDateComponents new];
-        components.month = -6;
+        components.month = -_pastMonths;
         return components;
     })()) toDate:month options:0]];
     
     _toDate = [self pickerDateFromDate:[self.calendar dateByAddingComponents:((^{
         NSDateComponents *components = [NSDateComponents new];
-        components.month = 6;
+        components.month = _postMonths;
         return components;
     })()) toDate:month options:0]];
     
@@ -328,13 +334,13 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     
     _fromDate = [self pickerDateFromDate:[self.calendar dateByAddingComponents:((^{
         NSDateComponents *components = [NSDateComponents new];
-        components.month = -6;
+        components.month = -_pastMonths;
         return components;
     })()) toDate:now options:0]];
     
     _toDate = [self pickerDateFromDate:[self.calendar dateByAddingComponents:((^{
         NSDateComponents *components = [NSDateComponents new];
-        components.month = 6;
+        components.month = _postMonths;
         return components;
     })()) toDate:now options:0]];
     
@@ -351,7 +357,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
 {
     [self shiftDatesByComponents:((^{
         NSDateComponents *dateComponents = [NSDateComponents new];
-        dateComponents.month = -6;
+        dateComponents.month = -_pastMonths;
         return dateComponents;
     })())];
 }
@@ -360,7 +366,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
 {
     [self shiftDatesByComponents:((^{
         NSDateComponents *dateComponents = [NSDateComponents new];
-        dateComponents.month = 6;
+        dateComponents.month = _postMonths;
         return dateComponents;
     })())];
 }
